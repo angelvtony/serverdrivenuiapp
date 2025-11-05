@@ -22,13 +22,11 @@ fun DashboardScreen(viewModel: DashboardViewModel = viewModel()) {
     val layoutItems by viewModel.layoutData.observeAsState(emptyList())
     val isLoading by viewModel.isLoading.observeAsState(false)
 
-    // Pull-to-refresh state
     val pullRefreshState = rememberPullRefreshState(
         refreshing = isLoading,
         onRefresh = { viewModel.loadDashboardLayout() }
     )
 
-    // Initial load
     LaunchedEffect(Unit) {
         viewModel.loadDashboardLayout()
     }
@@ -56,7 +54,6 @@ fun DashboardScreen(viewModel: DashboardViewModel = viewModel()) {
             }
         }
 
-        // Refresh indicator at the top
         PullRefreshIndicator(
             refreshing = isLoading,
             state = pullRefreshState,

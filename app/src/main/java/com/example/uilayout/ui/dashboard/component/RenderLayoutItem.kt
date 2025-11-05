@@ -52,7 +52,7 @@ fun RenderLayoutItem(item: LayoutItem) {
 
         "button" -> {
             Button(
-                onClick = { /* TODO */ },
+                onClick = {},
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 8.dp)
